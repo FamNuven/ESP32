@@ -1,0 +1,44 @@
+#include <stdio.h>
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
+#include "freertos/queue.h"
+#include "driver/gpio.h"
+#include "esp_log.h"
+#include "sdkconfig.h"
+/******************************************************************************************************/
+// дефайны ножек, типа чтобы не писать номера выводов
+#define GPIO_OUTPUT_PIN_SEL    (1ULL << CONFIG_BLINK_GPIO)
+#define GPIO_INPUT_PIN_SEL     ((1ULL << CONFIG_BUTTON_GPIO_1)|(1ULL << CONFIG_BUTTON_GPIO_2))
+#define ESP_INTR_FLAG_DEFAULT  0
+/******************************************************************************************************/
+static xQueueHandle gpio_evt_queue = NULL;
+/******************************************************************************************************/
+static void task1
+
+/******************************************************************************************************/
+
+void app_main(void)
+{
+	int cnt = 0;
+	gpio_config_t io_conf = {};                 // создание структуры для инициализации вывода
+	io_conf.intr_type = GPIO_INTR_DISABLE;      // заполнение структуры
+	io_conf.mode = GPIO_MODE_OUTPUT;
+	io_conf.pin_bit_mask = GPIO_OUTPUT_PIN_SEL;
+	io_conf.pull_down_en = 0;
+	io_conf.pull_up_en   = 0;
+	gpio_config(&io_conf);
+	io_conf.intr_type = GPIO_INTR_POSEDGE;      // заполнение структуры
+	io_conf.mode = GPIO_MODE_INPUT;
+	io_conf.pin_bit_mask = GPIO_INPUT_PIN_SEL;  // вот сюда писать номера ножек
+	io_conf.pull_up_en   = 1;
+	gpio_config(&io_conf);
+
+	gpio_set_intr_type(CONFIG_BUTTON_GPIO_1, GPIO_INTR_ANYEDGE);  // смена intr_type отдельного вывода
+
+	gpio_evt_queue = xQueueCreate(10, sizeof(uint32_t)); //??
+
+	while (1)
+	{
+
+	}
+}
