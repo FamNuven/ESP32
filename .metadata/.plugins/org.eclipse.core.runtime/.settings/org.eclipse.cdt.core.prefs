@@ -1,9 +1,9 @@
 config/EXIT01/cdt.launchMode=run
 config/EXIT01/cdt.toolChain.id=gcc-xtensa-D\:/Program/Espressif/tools/xtensa-esp32-elf/esp-2021r2-patch3-8.4.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-gcc.exe
 config/EXIT01/cdt.toolChain.type=org.eclipse.cdt.build.gcc
-config/EXTI01/cdt.launchMode=run
-config/EXTI01/cdt.toolChain.id=gcc-xtensa-D\:/Program/Espressif/tools/xtensa-esp32-elf/esp-2021r2-patch3-8.4.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-gcc.exe
-config/EXTI01/cdt.toolChain.type=org.eclipse.cdt.build.gcc
+config/I2C_EEPROM/cdt.launchMode=run
+config/I2C_EEPROM/cdt.toolChain.id=gcc-xtensa-D\:/Program/Espressif/tools/xtensa-esp32-elf/esp-2021r2-patch3-8.4.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-gcc.exe
+config/I2C_EEPROM/cdt.toolChain.type=org.eclipse.cdt.build.gcc
 eclipse.preferences.version=1
 environment/workspace/IDF_CCACHE_ENABLE/delimiter=;
 environment/workspace/IDF_CCACHE_ENABLE/operation=replace
